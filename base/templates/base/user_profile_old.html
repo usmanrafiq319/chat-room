@@ -1,0 +1,36 @@
+{% extends 'main.html' %}
+{% block content %}
+<style>
+    .home-container {
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr;
+        grid-gap: 20px;
+    }
+
+    .home-container div {
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+</style>
+<div class="home-container">
+
+    <div>
+     
+        {% include 'base/topics_component.html' %}
+
+    </div>
+    <div>
+        <h1>{{user.username}}</h1>
+        <h4>rooms created {{rooms_count}}</h4>
+        {% include 'base/rooms_component.html' %}
+
+    </div>
+    <div>
+
+        {% include 'base/activity_component.html' %}
+    
+    </div>
+
+</div>
+{% endblock %}

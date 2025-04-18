@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h2 id="room">room will show here</h2>
+     <div id="all-rooms"></div>
+
+    <script>
+    let myfunction = async () => {
+    let roomsbox = document.getElementById('all-rooms')
+    let response = await fetch('http://127.0.0.1:8000/api/rooms')
+    let room = await response.json()
+    for(let i=0; i<=room.length; i++ ){
+        let box = room[i]
+        let html = `<div>
+            <hr>
+            <h2> ${box.name} </h2>
+            <p> ${box.description} </p>
+            </div>`
+        roomsbox.innerHTML += html    
+
+    }
+
+    console.log('room:',room)
+    }
+     
+    myfunction()
+
+    </script>
+</body>
+</html>
